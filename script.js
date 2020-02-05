@@ -1,4 +1,5 @@
 $(function() {
+  // 有料登録ポップアップの表示
   setTimeout(() => {
     $('#modal').fadeIn();
   }, 5000);
@@ -6,6 +7,7 @@ $(function() {
     $('#modal').fadeOut();
   });
 
+  // ToDoの追加
   $('#addTodoButton').click((e) => {
     e.preventDefault();
     let todoTitle = $('#todoTitleInput').val();
@@ -18,18 +20,18 @@ $(function() {
     todoList.prepend(newTodo);
   });
 
+  // ToDo追加フォームの内容のクリア
   $('#clearFormButton').click((e) => {
     e.preventDefault();
     $('#todoTitleInput').val('');
     $('#todoContentTextarea').val('');
   });
 
+  // ToDoの完了
   $(document).on('click', '.complete-button', (e) => {
     if(!confirm('このタスクを完了してよろしいですか？')){
-      /* キャンセルの時の処理 */
       return false;
     } else {
-      /*　OKの時の処理 */
       $(e.currentTarget).parent().remove();
     }
   });
