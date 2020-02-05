@@ -29,10 +29,10 @@ $(function() {
 
   // ToDoの完了
   $(document).on('click', '.complete-button', (e) => {
-    if(!confirm('このタスクを完了してよろしいですか？')){
-      return false;
-    } else {
+    if(confirm('このタスクを完了してよろしいですか？')){
       $(e.currentTarget).parent().remove();
+    } else {
+      return false;
     }
   });
 });
